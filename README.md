@@ -40,6 +40,47 @@
 
     Module：模块化
 
+## vuex的安装
+
+    npm install -g @vue/cli
+
+    vue create study-vuex
+
+    cd study-vuex
+
+    npm run serve
+
+    先把项目跑起来  
+
+    安装vuex包：npm install vuex
+
+    在main.js中
+    ```
+        // 1.引入vuex
+        import Vuex from 'vuex'
+        // 2.这里触发了vuex的store方法，安装好vuex这个库
+        Vue.use(Vuex)
+        //创建vuex实例：new Vuex.store()
+        // 3.创建一个实例，通过调用vue.Store,就是实例化一个vuex赋值给store
+        const store=new Vue.Store({
+        state:{
+            // 初始化一个数据
+            count:0
+        }
+        })
+        new Vue({
+        // 4.将vuex实例挂载到vue对象上
+        store,
+        render: h => h(App),
+        }).$mount('#app')
+    ```
+
+    重启项目就可以在控制台看到vuex的状态，vuex就安装成功了
+        
+        
+        
+   
+
 
 
 # study-vuex
