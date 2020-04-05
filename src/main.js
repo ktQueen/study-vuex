@@ -10,8 +10,15 @@ Vue.use(Vuex)
 // 3.创建一个实例，通过调用vue.Store,就是实例化一个vuex赋值给store
 const store=new Vuex.Store({
   state:{
-    // 初始化一个数据
+    // a.state中创建初始化一个数据
     count:0
+  },
+  // b.mutations 中创建一个count++的mutation
+  mutations:{
+    countIncrease(state,v){
+      // state.count++
+      state.count=v
+    }
   }
 })
 

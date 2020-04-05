@@ -1,17 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>count:{{this.$store.state.count}}</h1>
+    <h1>count:{{count}}</h1>
+    <button @click="countIncrease1">点我自增</button>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+  },
+  computed:{
+    count(){
+      return this.$store.state.count
+    }
+  },
+  methods:{
+    countIncrease1(){
+      // 第一个参数是mutations里定义的函数名字
+      // 第二个参数是传入一个值，可以在mutations里面拿到这个值
+      const v=2200
+      this.$store.commit('countIncrease',v)
+    }
   }
 }
 </script>

@@ -55,7 +55,6 @@
     安装vuex包：npm install vuex
 
     在main.js中
-    ```
         // 1.引入vuex
         import Vuex from 'vuex'
         // 2.这里触发了vuex的store方法，安装好vuex这个库
@@ -73,7 +72,6 @@
         store,
         render: h => h(App),
         }).$mount('#app')
-    ```
 
     重启项目就可以在控制台看到vuex的状态，vuex就安装成功了
         
