@@ -1,15 +1,16 @@
 <template>
   <div id="app">
-    <h1>count:{{this.$store.state.count}}</h1>
+    <!-- <h1>count:{{this.$store.state.count}}</h1>
     <h1>count:{{count}}</h1>
-    <button @click="countIncrease1">点我自增</button>
+    <button @click="countIncrease1">点我自增</button> -->
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'App',
+  name: 'app',
   components: {
   },
   computed:{
