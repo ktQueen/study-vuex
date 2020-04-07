@@ -3,7 +3,7 @@
         <h1>你好</h1>
         <p class="text">
             尊敬的
-            <span style="color: red;">用户</span>，欢迎来到前端！
+            <span style="color: red;">{{memberInfo}}用户</span>，欢迎来到前端！
         </p>
         <div class>
             <card
@@ -12,11 +12,12 @@
                 :key="index"
             ></card>
         </div>
-        <button class="footer-opt btn">充值</button>
+        <button class="footer-opt btn" @click="goUserCenter">充值</button>
     </div>
 </template>
 <script>
 import card from "../components/card";
+import {mapGetters,mapState} from 'vuex';
 export default {
     name:'index',
     components: {
@@ -62,8 +63,18 @@ export default {
             }
         ];
     },
-    mounted() {},
-    methods: {       
+    // mapGetters([getters的方法名])
+    computed:{
+        ...mapState(['userStatus','vipLevel']),
+        ...mapGetters(['memberInfo'])
+    },
+    mounted() {
+        console.log(this.userStatus,this.vipLevel);
+    },
+    methods: {  
+        goUserCenter(){
+             this.$router.push("./userCenter")
+        }     
     }
 };
 </script>
