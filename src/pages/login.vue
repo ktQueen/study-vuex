@@ -26,6 +26,7 @@
     </div>
 </template>
 <script>
+import store from '../store'
 export default {
     name:"login",
     data() {
@@ -50,6 +51,14 @@ export default {
                 alert("请填写账号密码");
                 return false;
             }
+            const that =this;
+            setTimeout(()=>{
+                store.commit('login',{
+                    accpunt:that.form.account,
+                    password:that.form.password
+                })
+                that.$router.push("./")
+            },500)
         }
     }
 };
