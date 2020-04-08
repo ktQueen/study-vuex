@@ -4,6 +4,7 @@ export default{
             // mock api 交互
             setTimeout(()=>{
                 // 修改本地state
+                // commit触发mutation是唯一修改vuex定义的state的方法
                 commit('setMemberInfo',{
                     userStatus:e.userStatus,
                     vipLevel:e.vipLevel
