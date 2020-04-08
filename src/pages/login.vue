@@ -58,7 +58,7 @@ export default {
                     password:that.form.password
                 })
                 store.commit('setMemberInfo',{
-                    userStatus:1,
+                    userStatus:0,
                     vipLevel:0
                 })
                 that.$router.push("./")

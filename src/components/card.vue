@@ -1,5 +1,5 @@
 <template>
-    <div class="course-card">
+    <div class="course-card" @click="goCourse(course)">
         <div class="card-img">
             <img :src="course.thumb" alt mode>
         </div>
@@ -22,6 +22,9 @@ export default {
         }
     },
     methods: {
+        goCourse(course){
+           this.$emit('goCourse',course)
+        }
     }
 };
 </script>

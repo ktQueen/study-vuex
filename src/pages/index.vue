@@ -10,6 +10,7 @@
                 :course="item"
                 v-for="(item, index) in courseList"
                 :key="index"
+                @goCourse="goCourse"
             ></card>
         </div>
         <button class="footer-opt btn" @click="goUserCenter">充值</button>
@@ -74,7 +75,31 @@ export default {
     methods: {  
         goUserCenter(){
              this.$router.push("./userCenter")
-        }     
+        },
+        goCourse(course){
+            const res=this.checkPermission(course)
+            if(res){
+                this.$router.push({
+                    name:"course",
+                    params:{
+                        id:course.id
+                    }
+                })
+                // this.$router.push("./course/"+course.id)
+            }else{
+                alert('权限不足，无法观看');
+            }
+        },
+        checkPermission(course){
+            const userStatus=this.$store.state.userStatus
+            const vipLevel=this.$store.state.vipLevel
+            if(userStatus>=course.userStatus){
+                if(vipLevel>=course.vipLevel){
+                    return true
+                }
+            }
+            return false;
+        }    
     }
 };
 </script>

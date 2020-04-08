@@ -19,7 +19,7 @@
                                 {{item.charge}}元
                                 <span class="item-content__date">/ 30天</span>
                             </span>
-                            <button class="item-content__btn" @click="buy()">购买</button>
+                            <button class="item-content__btn" @click="buy(item)">购买</button>
                         </div>
                     </li>
                 </ul>
@@ -28,6 +28,7 @@
     </div>
 </template>
 <script>
+import store from '../store'
 import {mapGetters,mapState} from 'vuex';
 export default {
     data() {
@@ -72,7 +73,11 @@ export default {
     methods: {
         recharge() {},
         upgrade() {},
-        buy() {}
+        buy(e) {
+            store.dispatch('buyVip',e).then(res=>{
+                console.log(res)
+            })
+        }
     }
 };
 </script>
